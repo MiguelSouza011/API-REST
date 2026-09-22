@@ -12,7 +12,8 @@ public class Client {
     private Long id;
     private String name;
     @ManyToOne
-    private String email;
+    @JoinColumn(name = "cep")
+    private Address address;
 
     public Client() {
     }
@@ -33,24 +34,24 @@ public class Client {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return Objects.equals(id, client.id) && Objects.equals(name, client.name) && Objects.equals(email, client.email);
+        return Objects.equals(id, client.id) && Objects.equals(name, client.name) && Objects.equals(address, client.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email);
+        return Objects.hash(id, name, address);
     }
 
     @Override
@@ -58,7 +59,7 @@ public class Client {
         return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
+                ", email='" + address + '\'' +
                 '}';
     }
 }

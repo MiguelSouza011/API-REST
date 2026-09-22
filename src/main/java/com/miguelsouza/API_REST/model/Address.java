@@ -2,6 +2,7 @@ package com.miguelsouza.API_REST.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 import java.util.Objects;
 
@@ -19,6 +20,8 @@ public class Address {
     private String gia;
     private String ddd;
     private String siae;
+    @Transient
+    private Boolean erro;
 
     public Address() {
     }
@@ -101,6 +104,14 @@ public class Address {
 
     public void setSiae(String siae) {
         this.siae = siae;
+    }
+
+    public Boolean getErro() {
+        return erro;
+    }
+
+    public void setErro(Boolean erro) {
+        this.erro = erro;
     }
 
     @Override
